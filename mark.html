@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Про мене | Візитка</title>
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --bg-color: #f8fafc;
+        --text-color: #1e293b;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #e2e8f0;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        border: 4px solid var(--primary-color);
+      }
+
+      h1 {
+        margin: 10px 0;
+        font-size: 1.5rem;
+      }
+
+      p {
+        color: #64748b;
+        line-height: 1.6;
+      }
+
+      .tags {
+        margin: 15px 0;
+      }
+
+      .tag {
+        display: inline-block;
+        background: #dbeafe;
+        color: var(--primary-color);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 3px;
+        font-weight: bold;
+      }
+
+      .social-links {
+        margin-top: 20px;
+      }
+
+      .btn {
+        display: block;
+        text-decoration: none;
+        background: var(--primary-color);
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        transition: opacity 0.3s;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <!-- Можна замінити посилання на своє фото -->
+      <img src="mark.jpg" alt="Фото профілю" class="profile-img" />
+
+      <h1>Марк</h1>
+      <p>
+        Привіт! Я захоплююсь технологіями, програмуванням та створенням цікавих
+        проєктів. Завжди відкритий до нових знань.
+      </p>
+
+      <div class="tags">
+        <span class="tag">#JavaScript</span>
+        <span class="tag">#React</span>
+        <span class="tag">#WebDev</span>
+        <span class="tag">#Learning</span>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0" />
+
+      <div class="social-links">
+        <a href="https://t.me/marko_boroda" class="btn">Написати в Telegram</a>
+        <a
+          href="mailto:markboroda3000.9@gmail.com"
+          class="btn"
+          style="background: #64748b"
+          >Надіслати Email</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
