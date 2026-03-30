@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наша Команда</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 60px 20px;
+        }
+
+        /* Головний контейнер */
+        .team-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .team-section p.subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+        }
+
+        /* Налаштування сітки для карток */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Стилі для кожної картки */
+        .team-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Анімація при наведенні миші */
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Зображення учасника */
+        .card-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 3px solid #3498db;
+        }
+
+        /* Текстова частина картки */
+        .card-content {
+            padding: 25px 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .card-content h4 {
+            font-size: 1rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="team-section">
+    <h1>Наша Команда</h1>
+    <p class="subtitle">Знайомтеся з нашою потужною командою.</p>
+    
+    <div class="team-grid">
+        <div class="team-card">
+            <img src="21.jpg" alt="Олександр" class="card-image">
+            <div class="card-content">
+                <h3>Олександр</h3>
+                <h4>Лідер та студент групи К-15, пайтоніст</h4>
+                <p>Олександр керує всіма процесами та гарантує, що ми досягаємо поставлених цілей вчасно та якісно.</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <img src="dori.jpg" alt="Дарія" class="card-image">
+            <div class="card-content">
+                <h3>Дарія</h3>
+                <h4>Студентка групи К-15, потужна дівчинка </h4>
+                <p>Дарія створює неймовірні візуальні концепції та дбає про ідеальний та зручний користувацький досвід.</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <img src="mark.jpg" alt="Марк" class="card-image">
+            <div class="card-content">
+                <h3>Марк</h3>
+                <h4>Студент групи К-18, талановитий програміст</h4>
+                <p>Марк розробляє ефективний та швидкий програмний код, що забезпечує високу продуктивність нашого продукту.</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <img src="lud.jpg" alt="Людмила" class="card-image">
+            <div class="card-content">
+                <h3>Людмила</h3>
+                <h4>Студенка групи К-15</h4>
+                <p>Подруга Дарії. Найбільший любитель котиків.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
