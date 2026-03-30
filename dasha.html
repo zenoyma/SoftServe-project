@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про мене | My Portfolio</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #0f172a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f1f5f9;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-img img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #38bdf8;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            background: #334155;
+        }
+
+        h1 {
+            margin: 0.5rem 0;
+            font-size: 1.8rem;
+        }
+
+        .highlight {
+            color: #38bdf8;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: #334155;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #38bdf8;
+        }
+
+        .links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn:not(.outline) {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .btn.outline {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        
+        
+        <h1>Привіт, я <span class="highlight">Даша</span></h1>
+        <p class="subtitle">CS Student & Developer</p>
+        
+        <div class="bio">
+            <p>Навчаюсь програмуванню, досліджую світ алгоритмів та створюю зручні інтерфейси. Люблю чистий код та цікаві виклики.</p>
+        </div>
+
+        <div class="skills">
+            <span class="tag">C++</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Git</span>
+            <span class="tag">HTML/CSS</span>
+        </div>
+
+        <div class="links">
+            <a href="#" class="btn">GitHub</a>
+            <a href="#" class="btn outline">LinkedIn</a>
+        </div>
+    </div>
+
+</body>
+</html>
