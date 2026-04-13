@@ -3,139 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Про мене | My Portfolio</title>
-    
+    <title>Даша - SoftServe Team</title>
     <style>
-        body {
+        /* Всі ваші стилі залишаються без змін */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #0f172a;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #f1f5f9;
         }
 
-        .card {
-            background: #1e293b;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            transition: transform 0.3s ease;
+        :root {
+            --primary: #a78bfa;
+            --primary-dark: #8b5cf6;
+            --primary-light: #c4b5fd;
+            --primary-glow: rgba(167, 139, 250, 0.15);
+            --bg: #0d0b1a;
+            --bg-secondary: #13111f;
+            --surface: #1a1730;
+            --surface-2: #211e38;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: #2d2a4a;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.5);
+            --hero-bg-1: rgba(124, 58, 237, 0.35);
+            --hero-bg-2: rgba(167, 139, 250, 0.2);
+            --hero-bg-3: rgba(109, 40, 217, 0.25);
+            --hero-gradient: linear-gradient(135deg, #2d1b69 0%, #1a0f3c 40%, #0d0b1a 100%);
+            --hero-text: rgba(255, 255, 255, 0.78);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        body.light {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --primary-light: #a78bfa;
+            --primary-glow: rgba(124, 58, 237, 0.1);
+            --bg: #f5f3ff;
+            --bg-secondary: #ede9fe;
+            --surface: #ffffff;
+            --surface-2: #faf9ff;
+            --text-primary: #1e1b4b;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --border: #e5e7eb;
+            --shadow-sm: 0 2px 8px rgba(124, 58, 237, 0.08);
+            --shadow-md: 0 8px 24px rgba(124, 58, 237, 0.12);
+            --shadow-lg: 0 20px 48px rgba(124, 58, 237, 0.18);
+            --hero-bg-1: rgba(167, 139, 250, 0.4);
+            --hero-bg-2: rgba(196, 181, 253, 0.3);
+            --hero-bg-3: rgba(139, 92, 246, 0.3);
+            --hero-gradient: linear-gradient(135deg, #7c3aed 0%, #a78bfa 50%, #c4b5fd 100%);
+            --hero-text: rgba(255, 255, 255, 0.92);
         }
 
-        .profile-img img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid #38bdf8;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            background: #334155;
-        }
-
-        h1 {
-            margin: 0.5rem 0;
-            font-size: 1.8rem;
-        }
-
-        .highlight {
-            color: #38bdf8;
-        }
-
-        .subtitle {
-            color: #94a3b8;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .bio {
-            font-size: 1rem;
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #cbd5e1;
-            margin-bottom: 1.5rem;
+            transition: background-color var(--transition), color var(--transition);
+            overflow-x: hidden;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 2rem;
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background-color: var(--surface);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: background-color var(--transition), border-color var(--transition);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
 
-        .tag {
-            background: #334155;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            color: #38bdf8;
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            height: 70px; display: flex; align-items: center;
+            justify-content: space-between; gap: 2rem;
         }
 
-        .links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.6rem;
+            text-decoration: none; color: var(--primary);
+            font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px;
+            white-space: nowrap; transition: opacity var(--transition);
         }
 
-        .btn {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.2s;
-            display: inline-block;
+        .nav-logo-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; flex-shrink: 0;
         }
 
-        .btn:not(.outline) {
-            background: #38bdf8;
-            color: #0f172a;
+        .nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-secondary);
+            font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0.9rem;
+            border-radius: var(--radius-sm); transition: color var(--transition), background-color var(--transition);
         }
 
-        .btn.outline {
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary); background-color: var(--primary-glow);
         }
 
-        .btn:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
+        .theme-btn {
+            width: 42px; height: 42px; border: 1.5px solid var(--border);
+            background: var(--surface-2); border-radius: var(--radius-sm);
+            cursor: pointer; font-size: 1.1rem; display: flex;
+            align-items: center; justify-content: center;
+            transition: background-color var(--transition), border-color var(--transition), transform var(--transition);
         }
+
+        .theme-btn:hover { transform: rotate(20deg); background-color: var(--primary-glow); border-color: var(--primary); }
+
+        .hero {
+            position: relative; min-height: 460px; display: flex;
+            align-items: center; justify-content: center; text-align: center;
+            overflow: hidden; padding: 4.5rem 2rem;
+            background: radial-gradient(ellipse at 20% 50%, var(--hero-bg-1) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, var(--hero-bg-2) 0%, transparent 50%),
+                        radial-gradient(ellipse at 60% 80%, var(--hero-bg-3) 0%, transparent 50%),
+                        var(--hero-gradient);
+            transition: background var(--transition);
+        }
+
+        .hero-content { max-width: 860px; position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff; font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem;
+            border-radius: 999px; margin-bottom: 1.3rem; text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; color: #ffffff;
+            line-height: 1.15; margin-bottom: 1.2rem; letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #e9d5ff, #f5d0fe);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.15rem); color: var(--hero-text);
+            line-height: 1.8; max-width: 650px; margin: 0 auto;
+        }
+
+        .profile-section { max-width: 1200px; margin: 0 auto; padding: 4.5rem 2rem; }
+        .profile-grid { display: grid; grid-template-columns: 360px 1fr; gap: 1.5rem; align-items: start; }
+
+        .profile-card, .content-card {
+            background: var(--surface); border-radius: var(--radius-md);
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+            overflow: hidden; transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .profile-card:hover, .content-card:hover { border-color: var(--primary-light); box-shadow: var(--shadow-md); }
+
+        .avatar-wrap {
+            position: relative; background: linear-gradient(135deg, var(--bg-secondary), var(--surface-2));
+            border-bottom: 1px solid var(--border); display: flex; justify-content: center; padding: 1.4rem 1.4rem 0;
+        }
+
+        .avatar-wrap img { width: min(100%, 280px); height: auto; display: block; object-fit: contain; }
+
+        .profile-body { padding: 1.4rem; }
+        .profile-role {
+            display: inline-block; background: var(--primary-glow); color: var(--primary);
+            font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem;
+            border-radius: 999px; text-transform: uppercase; margin-bottom: 0.8rem;
+        }
+
+        .profile-body h2 { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.35rem; }
+        .profile-body .subtitle { color: var(--text-secondary); margin-bottom: 1.1rem; font-size: 0.95rem; }
+        .profile-divider { height: 1px; background: var(--border); margin: 1rem 0 1.1rem; }
+        
+        .content-card { padding: 1.6rem; }
+        .section-tag {
+            display: inline-block; background: var(--primary-glow); color: var(--primary);
+            font-size: 0.8rem; font-weight: 700; padding: 0.35rem 1rem;
+            border-radius: 999px; margin-bottom: 1rem; text-transform: uppercase;
+        }
+
+        .facts-grid { margin-top: 1.2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .fact-card {
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: var(--radius-md); padding: 1rem; transition: transform var(--transition);
+        }
+        .fact-card:hover { transform: translateY(-4px); border-color: var(--primary-light); }
+
+        footer {
+            background: var(--bg-secondary); border-top: 1px solid var(--border);
+            padding: 2rem; text-align: center; color: var(--text-muted);
+        }
+        footer span { color: var(--primary); font-weight: 600; }
+
+        @media (max-width: 1020px) { .profile-grid { grid-template-columns: 1fr; } .facts-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .facts-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 500px) { .nav-logo-text { display: none; } }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-container">
+            <a href="team.html" class="nav-logo">
+                <div class="nav-logo-icon">👥</div>
+                <span class="nav-logo-text">SoftServe Team</span>
+            </a>
 
-    <div class="card">
-        
-        
-        <h1>Привіт, я <span class="highlight">Даша</span></h1>
-        <p class="subtitle">CS Student & Developer</p>
-        
-        <div class="bio">
-            <p>Навчаюсь програмуванню, досліджую світ алгоритмів та створюю зручні інтерфейси. Люблю чистий код та цікаві виклики.</p>
+            <ul class="nav-links">
+                <li><a href="dasha.html" class="active">Даша</a></li>
+                <li><a href="luda.html">Людмила</a></li>
+                <li><a href="mark.html">Марк</a></li>
+                <li><a href="zenoyma.html">Олександр</a></li>
+            </ul>
+
+            <button class="theme-btn" id="themeToggle" title="Перемикнути тему">🌙</button>
         </div>
+    </nav>
 
-        <div class="skills">
-            <span class="tag">C++</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Git</span>
-            <span class="tag">HTML/CSS</span>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✦ Профіль учасниці</div>
+            <h1>Даша <span>Denysenko</span></h1>
+            <p>Студентка KNU, яка спеціалізується на розробці програмного забезпечення та обожнює складні математичні задачі.</p>
         </div>
+    </section>
 
-        <div class="links">
-            <a href="#" class="btn">GitHub</a>
-            <a href="#" class="btn outline">LinkedIn</a>
+    <main class="profile-section">
+        <div class="profile-grid">
+            <article class="profile-card">
+                <div class="avatar-wrap">
+                    <img src="dori.jpg" alt="Даша">
+                </div>
+                <div class="profile-body">
+                    <span class="profile-role">Developer • C++ / Python</span>
+                    <h2>Даша</h2>
+                    <p class="subtitle">Студентка групи К-15</p>
+                    
+                </div>
+            </article>
+
+            <article class="content-card">
+                <div class="section-tag">💡 Про мене</div>
+                <h3>Технічні навички та інтереси</h3>
+                <p>Створює зручні та красиві інтерфейси. Відповідає за те, щоб продукт був не лише робочим, а й приємним.</p>
+                
+
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <h4>🎨 Figma</h4>
+                        <p>Проектую інтерактивні прототипи, використовуючи компоненти та Auto Layout для гнучкості.</p>
+                    </div>
+                    <div class="fact-card">
+                        <h4>✏️ UI Design</h4>
+                        <p>Проводжу UX-дослідження та створюю візуальні інтерфейси, орієнтовані на користувача.</p>
+                    </div>
+                    <div class="fact-card">
+                        <h4>🔍 UX Research</h4>
+                        <p>Розумію весь цикл: від першого начерку в Figma до фінального рядка коду в проекті.</p>
+                    </div>
+                </div>
+            </article>
         </div>
-    </div>
+    </main>
 
+    <footer>
+        <p>© 2026 <span>SoftServe Team</span> - Особиста сторінка учасниці</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('themeToggle');
+        const body = document.body;
+        const DARK_ICON = '🌙';
+        const LIGHT_ICON = '☀️';
+
+        (function init() {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'light') { applyLight(); } else { applyDark(); }
+        })();
+
+        btn.addEventListener('click', () => {
+            if (body.classList.contains('light')) {
+                applyDark();
+                localStorage.setItem('theme', 'dark');
+            } else {
+                applyLight();
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        function applyDark() { body.classList.remove('light'); btn.textContent = DARK_ICON; }
+        function applyLight() { body.classList.add('light'); btn.textContent = LIGHT_ICON; }
+    </script>
 </body>
 </html>
