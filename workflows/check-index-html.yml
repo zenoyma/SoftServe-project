@@ -1,0 +1,39 @@
+name: Check Index HTML
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Завантажуємо код гілки, з якої запустили перевірку
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      # 2. Даємо права на виконання і запускаємо ваш скрипт
+      - name: Run check_index.sh
+        id: check_file
+        run: |
+          chmod +x check_index.sh
+          ./check_index.sh
+
+      # 3. Якщо скрипт пройшов успішно (файл є), перемикаємось на main
+      - name: Checkout main branch
+        if: success()
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # 4. Робимо запис у README.md та пушимо в main
+      - name: Update README.md
+        if: success()
+        run: |
+          echo "- Гілка \`${{ github.ref_name }}\`: файл index.html присутній ✅" >> README.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Автоматичне оновлення README для гілки ${{ github.ref_name }}"
+          git push origin main
